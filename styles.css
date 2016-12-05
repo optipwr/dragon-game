@@ -1,0 +1,9 @@
+.hiding {
+	visibility: hidden;
+}
+.center-it {
+	text-align: center;
+}
+#clear {
+	clear: both;
+}

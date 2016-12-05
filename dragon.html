@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fight the Dragon</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+	<div class="center-it" id="game">
+
+		<img class="center-it" name="dragon" src="dragon-assets/dragon.png">
+		<div>
+			<h4>You encountered a dragon. Do you fight or Flee?</h4>
+		</div>
+		<h4>Do you fight?</h4>
+		<input type="button" onclick="start();" value="Fight!">
+		<h4>Or Flee...</h4>
+		<div>
+		<input type="button" onclick="flee()" value="Flee...">
+		</div>
+		<div>
+		<img id="clear" class="center-it" name="hero" src="dragon-assets/170px-Linkalttpr.png">
+		</div>
+		<img id="dice1" class="hiding" name="die1" src="dragon-assets/d1.gif">
+		<img id="dice2" class="hiding" name="die2" src="dragon-assets/d1.gif">
+
+		<input id="hidden" class="hiding" type="button" onclick="rollDice();" value="Roll the dice!">
+
+		<div id="userRoll"></div>
+
+	</div>
+
+	<script type="text/javascript">
+
+	function rollDice() {
+		var randomDie1 = Math.ceil(Math.random() * 6);
+		var randomDie2 = Math.ceil(Math.random() * 6);
+
+		console.log(randomDie1);
+		console.log(randomDie2);
+
+		document.images.die1.src="dragon-assets/d" + randomDie1 + ".gif";
+		document.images.die2.src="dragon-assets/d" + randomDie2 + ".gif";
+
+
+
+		document.getElementById('userRoll').innerHTML = randomDie1 + randomDie2;
+
+		if (randomDie1 + randomDie2 > 9){
+			document.images.dragon.src="dragon-assets/linkvictory.jpeg"
+		}
+		else {
+			document.images.hero.src="dragon-assets/linkdefeat.jpg"
+		}
+	}
+
+	function start() {
+		document.getElementById("hidden").style.visibility = "initial";
+		document.getElementById("dice1").style.visibility = "initial";
+		document.getElementById("dice2").style.visibility = "initial";
+	}
+
+	function flee() {
+		document.images.hero.src="dragon-assets/linkdefeat.jpg";
+	}
+	</script>
+
+</body>
+</html>
